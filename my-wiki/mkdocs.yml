@@ -1,0 +1,21 @@
+site_name: My Docs
+theme:
+  name: 'material'
+nav:
+  - Home: index.md
+  - C(2022):
+      - 1.数据类型和输入输出: C(2022)/before/before.md
+      - 2.scanf: C(2022)/scanf/scanf.md
+      - 3.运算符与逻辑运算: C(2022)/expression/expression.md
+      - 4.指针: C(2022)/pointer/pointer.md
+      - 5.结构体: C(2022)/struct/struct.md
+
+  - DataStruct:
+      - 1.时间&空间复杂度: DataStruct/complexity/complexity.md
+      - 2.线性表: DataStruct/LinearList/LinearList.md
+      - 3.栈: DataStruct/stack/stack.md
+      - 4.队列: DataStruct/queue/queue.md
+      - 5.树: DataStruct/tree/tree.md
+#      - 6.图: DataStruct/map/map.md
+      - 7.查找: DataStruct/search/search.md
+      - 8.排序: DataStruct/sort/sort.md
