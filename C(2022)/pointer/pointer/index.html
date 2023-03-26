@@ -1,0 +1,974 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.0">
+    
+    
+      
+        <title>4.指针 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2e8b5541.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4.指针
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          C(2022)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C(2022)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          C(2022)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../before/before/" class="md-nav__link">
+        1.数据类型和输入输出
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scanf/scanf/" class="md-nav__link">
+        2.scanf
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../expression/expression/" class="md-nav__link">
+        3.运算符与逻辑运算
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          4.指针
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        4.指针
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.指针的定义
+  </a>
+  
+    <nav class="md-nav" aria-label="1.指针的定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    取地址操作符与取值操作符
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 指针的使用场景
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 指针的使用场景">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 指针的传递
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 指针的偏移
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.指针与一维数组
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-malloc" class="md-nav__link">
+    4. 动态内存申请malloc
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 栈空间与堆空间的差异
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6.字符指针与字符数组的初始化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7.二级指针
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../struct/struct/" class="md-nav__link">
+        5.结构体
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          DataStruct
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="DataStruct" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          DataStruct
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DataStruct/complexity/complexity/" class="md-nav__link">
+        1.时间&空间复杂度
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DataStruct/LinearList/LinearList/" class="md-nav__link">
+        2.线性表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DataStruct/stack/stack/" class="md-nav__link">
+        3.栈
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DataStruct/queue/queue/" class="md-nav__link">
+        4.队列
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DataStruct/tree/tree/" class="md-nav__link">
+        5.树
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DataStruct/search/search/" class="md-nav__link">
+        7.查找
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DataStruct/sort/sort/" class="md-nav__link">
+        8.排序
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.指针的定义
+  </a>
+  
+    <nav class="md-nav" aria-label="1.指针的定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    取地址操作符与取值操作符
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 指针的使用场景
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 指针的使用场景">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 指针的传递
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 指针的偏移
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.指针与一维数组
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-malloc" class="md-nav__link">
+    4. 动态内存申请malloc
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5. 栈空间与堆空间的差异
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6.字符指针与字符数组的初始化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7.二级指针
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">指针</h1>
+<p><strong>摘要：</strong></p>
+<ul>
+<li>指针的本质</li>
+<li>指针的传递和偏移</li>
+<li>二级指针</li>
+</ul>
+<pre><code>对32位操作系统来说，有32根总线，
+内存地址最多2^32个，用二进制编码地址的话应该是32个bit，也就是4个byte的大小用来存内存地址。
+
+用16进制表示就是8个16进制数
+在内存视图中查看：
+    - 看到四组十六进制数
+    - 每组两位
+</code></pre>
+<h3 id="1">1.指针的定义</h3>
+<p>指针变量存储的内容是一个变量的内存地址</p>
+<pre><code>内存地址（针对32位操作系统）
+每一个内存地址对应4字节
+</code></pre>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+int main(){
+    int i=5;
+    int *i_pointer = &amp;i;
+    // 定义一个指针变量i_pointer 存储i的内存地址
+}
+</code></pre>
+<p><img alt="image-20220320100805998" src="../assets/image-20220320100805998.png" /></p>
+<pre><code>指针变量的初始化一定指向某个变量的内存地址
+</code></pre>
+<h4 id="_2">取地址操作符与取值操作符</h4>
+<ul>
+<li>取地址操作符&amp;，通过这个操作符可以获取一个变量的内存地址值</li>
+<li>取值操作符*，可以获得一个地址对应的数据</li>
+</ul>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+int main()
+{
+    int i = 5;
+    int* p = &amp;i;
+    printf(&quot;i=%d\n&quot;,i);//直接访问
+    printf(&quot;*p=%d\n&quot;,*p);//通过内存地址间接访问
+}
+</code></pre>
+<p><strong>需要注意：</strong></p>
+<ul>
+<li>
+<p>定义指针变量时必须制定指针变量的类型，整型变量指针和浮点型变量指针不能混用</p>
+<p>只有整形变量的地址才能放到指向整型变量的指针变量中。</p>
+</li>
+</ul>
+<h3 id="2">2. 指针的使用场景</h3>
+<ul>
+<li>传递，c语言的函数调用是值传递，实参赋值给行参</li>
+<li>偏移</li>
+</ul>
+<h4 id="21">2.1 指针的传递</h4>
+<p><strong>c语言函数调用采取值传递</strong></p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+void change(int j)
+{
+    j = 5;
+}
+
+int main()
+{
+    int i = 10;
+    printf(&quot;before change i=%d&quot;,i);
+    change(i);
+    printf(&quot;after change i=%d&quot;,i);
+    return 0;
+}
+</code></pre>
+<pre><code>/Users/uichuan/CLionProjects/c2022/pointer/cmake-build-debug/pointer
+before change i=10
+after change i=10
+
+Process finished with exit code 0
+</code></pre>
+<p>当main函数开始执行时，开辟栈空间，在调用change函数时，操作系统为change函数以及其内部参数在栈空间内分配内存空间。</p>
+<p>在调用change函数时，<strong>实际上是将i的值赋给j（值传递）</strong>，</p>
+<p><strong>当change函数执行结束后，栈空间释放</strong>，j被释放，i不会改变</p>
+<p><img alt="image-20220320161256229" src="../assets/image-20220320161256229.png" /></p>
+<h4 id="22">2.2 指针的偏移</h4>
+<p><strong>指针偏移的长度是其基类型的长度</strong>，sizeof（ElemType）</p>
+<p>void类型的指针无法偏移</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+int main()
+{
+    int a[5] = {1,2,3,4,5};
+    int *p; //对一个指针变量进行取值，得到的类型是其基类型
+    p = a;
+    printf(&quot;*p=%d\n&quot;,*p);
+    for(int i=0;i&lt;5;i++)
+    {
+        printf(&quot;%d\n&quot;,*(p+1));
+    }    
+}
+</code></pre>
+<h3 id="3">3.指针与一维数组</h3>
+<p>一维数组的数组变量名存储的是数组的首地址</p>
+<p>数组 传递时，<strong>弱化为指针</strong></p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+void change(char *d)
+{
+    d[0];
+}
+int main()
+{
+    char c[10] = &quot;hello&quot;;
+    change(c);
+}
+</code></pre>
+<h3 id="4-malloc">4. 动态内存申请malloc</h3>
+<p>c语言的数组长度固定是因为其定义的整型，浮点型，字符型变量，数组变量都在栈空间中，</p>
+<p>栈空间的大小在编译时是确定的，如果使用空间的大小不确定，那么就要使用堆空间。</p>
+<p><strong>使用<code>malloc</code>申请的是堆空间，不会随着函数的执行结束而释放</strong></p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+int main()
+{
+    int i;//申请多大空间
+    scanf(&quot;%d&quot;,&amp;i);
+    char *p;
+    p =  (char*)malloc(i);//malloc申请空间的单位是字节
+    strcpy(p,&quot;malloc success&quot;);
+    puts(p);
+    free(p);//释放空间
+    p = NULL;//如果不把p置为NULL，则p为野指针
+    return 0;
+}
+</code></pre>
+<p>释放空间时p的值必须和初始时一样，释放空间时指针不能偏移</p>
+<pre><code>void *p --无类型指针
+malloc返回无类型指针
+</code></pre>
+<h3 id="5">5. 栈空间与堆空间的差异</h3>
+<ul>
+<li>
+<p>在栈空间内，系统会自动释放内存（在函数结束之后）</p>
+</li>
+<li>
+<p>堆空间内，在程序释放空间之前，不会释放内存</p>
+</li>
+</ul>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+char* print_stack()
+{
+    char c[17] = &quot;i am print_stack&quot;;
+    puts(c);
+    return c;
+}
+
+char *print_malloc()
+{
+    char *p = (char*)malloc(30);//申请20字节堆空间，接收字符型指针
+    strcpy(p,&quot;i am print_malloc&quot;);
+    puts(p);
+    return p;
+}
+int main()
+{
+    char *p;
+    p = print_stack();//栈空间会随着函数的执行结束而释放
+    //puts(p);
+    p = print_malloc(); //此处p指向堆空间，不会因为print_malloc()函数的执行结束而释放内存空间
+    puts(p);
+    return 0;
+}
+</code></pre>
+<pre><code class="language-c">i am print_stack
+F // 产生乱码-&gt; 内存空间已经被释放
+i am print_malloc
+i am print_malloc
+</code></pre>
+<h3 id="6">6.字符指针与字符数组的初始化</h3>
+<p>字符指针可以初始化赋值一个字符串，字符数组初始化也可以赋值一个字符串</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+{
+    char *p = &quot;hello&quot;;  //把字符串型常量&quot;hello&quot;首地址给p
+    char c[10] = &quot;hello&quot;;//等价于strcpy(c,&quot;hello&quot;)，栈空间内
+    c[0] = 'H';//在栈空间内，可以修改
+    p[0] = 'H';//指针指向的数据区域不可以修改
+    p = &quot;world&quot;;//将字符串&quot;world&quot;首地址赋值给指针变量p
+    c = &quot;world&quot;;//非法，c已经有固定的内存地址
+
+
+    return 0;
+}
+</code></pre>
+<h3 id="7">7.二级指针</h3>
+<p>一级指针的使用场景是传递和偏移，</p>
+<p>二级指针只服务于一级指针的传递和偏移。</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+void change(int **pi, int *pj) {
+    *pi = pj;
+}
+
+// 想要在子函数中改变一个变量的值，必须传入变量的内存地址
+//同理，想要在子函数中改变一个指针变量的值，必须传入 指针变量的内存地址`
+int main() {
+    int i = 10;
+    int j = 5;
+    int *pi = &amp;i;
+    int *pj = &amp;j;
+    printf(&quot;pi_value=%d\n&quot;, *pi);
+    change(&amp;pi, pj);
+    printf(&quot;pi_value=%d\n&quot;, *pi);
+// &amp;pi此时相当于二级指针，用二级指针改变pi的内容
+}
+</code></pre>
+<pre><code>pi_value=10 // 通过二级指针change前---输出pi指针指向的值
+pi_value=5  // 通过二级指针change后---输出pi指针指向的值
+</code></pre>
+<pre><code>二级指针的初始化是一级指针取地址
+int **p2;
+p2 = &amp;p;    //p此时是一级指针
+</code></pre>
+<p><img alt="image-20220328180542286" src="../assets/image-20220328180542286.png" /></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../../expression/expression/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 3.运算符与逻辑运算" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              3.运算符与逻辑运算
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../struct/struct/" class="md-footer__link md-footer__link--next" aria-label="Next: 5.结构体" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              5.结构体
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.48f2be22.min.js"></script>
+      
+    
+  </body>
+</html>

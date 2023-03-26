@@ -1,0 +1,1674 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.0">
+    
+    
+      
+        <title>8.排序 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2e8b5541.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              8.排序
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          C(2022)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C(2022)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          C(2022)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%282022%29/before/before/" class="md-nav__link">
+        1.数据类型和输入输出
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%282022%29/scanf/scanf/" class="md-nav__link">
+        2.scanf
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%282022%29/expression/expression/" class="md-nav__link">
+        3.运算符与逻辑运算
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%282022%29/pointer/pointer/" class="md-nav__link">
+        4.指针
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%282022%29/struct/struct/" class="md-nav__link">
+        5.结构体
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          DataStruct
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="DataStruct" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          DataStruct
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../complexity/complexity/" class="md-nav__link">
+        1.时间&空间复杂度
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LinearList/LinearList/" class="md-nav__link">
+        2.线性表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stack/stack/" class="md-nav__link">
+        3.栈
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../queue/queue/" class="md-nav__link">
+        4.队列
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tree/tree/" class="md-nav__link">
+        5.树
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../search/search/" class="md-nav__link">
+        7.查找
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          8.排序
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        8.排序
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.交换排序
+  </a>
+  
+    <nav class="md-nav" aria-label="1.交换排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 冒泡排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 快速排序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.插入排序
+  </a>
+  
+    <nav class="md-nav" aria-label="2.插入排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 直接插入排序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.选择排序
+  </a>
+  
+    <nav class="md-nav" aria-label="3.选择排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1简单选择排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2堆排序
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2堆排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321" class="md-nav__link">
+    3.2.1前戏：堆
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322" class="md-nav__link">
+    3.2.2向下调整
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323" class="md-nav__link">
+    3.2.3堆排序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.归并排序
+  </a>
+  
+    <nav class="md-nav" aria-label="4.归并排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-merge" class="md-nav__link">
+    4.1 Merge函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 归并排序的递归实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5.排序算法时间&amp;空间复杂度汇总
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.交换排序
+  </a>
+  
+    <nav class="md-nav" aria-label="1.交换排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 冒泡排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 快速排序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.插入排序
+  </a>
+  
+    <nav class="md-nav" aria-label="2.插入排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 直接插入排序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.选择排序
+  </a>
+  
+    <nav class="md-nav" aria-label="3.选择排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1简单选择排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2堆排序
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2堆排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321" class="md-nav__link">
+    3.2.1前戏：堆
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322" class="md-nav__link">
+    3.2.2向下调整
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323" class="md-nav__link">
+    3.2.3堆排序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.归并排序
+  </a>
+  
+    <nav class="md-nav" aria-label="4.归并排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-merge" class="md-nav__link">
+    4.1 Merge函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 归并排序的递归实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5.排序算法时间&amp;空间复杂度汇总
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">排序</h1>
+<h2 id="1">1.交换排序</h2>
+<ul>
+<li>冒泡排序</li>
+<li>快速排序</li>
+</ul>
+<h3 id="11">1.1 冒泡排序</h3>
+<p><strong>冒泡排序的原理比较简单，人生苦短，就跳过吧</strong></p>
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+#include &lt;string.h&gt;
+
+//定义了数据类型的结构体
+typedef int Elemtype;
+typedef struct {
+    Elemtype *elem;
+    int len;
+} SSTable;
+
+
+//初始化用来存放数组和数组长度的结构体
+void STInit(SSTable &amp;ST, int len) {
+    ST.len = len;
+    ST.elem = (Elemtype *) malloc(sizeof(Elemtype) * ST.len);
+    int i;
+    srand(time(NULL));
+    for (i = 0; i &lt; ST.len; i++) {
+        ST.elem[i] = rand() % 100;
+    }
+}
+
+
+//打印
+void STPrint(SSTable ST) {
+    for (int i = 0; i &lt; ST.len; i++) {
+        printf(&quot;%3d&quot;, ST.elem[i]);
+    }
+    printf(&quot;\n&quot;);
+}
+
+
+//交换
+void swap(Elemtype &amp;a, Elemtype &amp;b) {
+    Elemtype tmp;
+    tmp = a;
+    a = b;
+    b = tmp;
+}
+
+
+//冒泡排序
+void BubbleSort(Elemtype A[], int n)
+{
+    for (int i = 0;i&lt;n;i++) // 外层循环，排序的round数，等于数组元素个数减1
+    {
+        for (int j=0; j&lt;n-i-1;j++) // 内层循环，交换元素的比较次数，等于无序区的元素个数-1
+        {
+            if(A[j]&gt;A[j+1])
+            {
+                swap(A[j],A[j+1]);
+            }
+        }
+    }
+}
+
+
+int main()
+{
+    SSTable ST;
+    STInit(ST,10);
+    STPrint(ST);
+    BubbleSort(ST.elem,ST.len);
+    STPrint(ST);
+
+}
+</code></pre>
+<h3 id="12">1.2 快速排序</h3>
+<p>快速排序的核心是分治思想。</p>
+<pre><code>- 取一个元素p（一般取第一个元素），使得元素p归位
+
+- 列表被p分为两部分，左边的都比p小，右边的都比p大
+
+- 分别递归左边和右边
+</code></pre>
+<p><strong>partition 函数的思想：</strong></p>
+<pre><code>5 7 4 6 3 1 2 9 8
+首先取第一个元素5，同时用指向除去5 以外的列表的头尾
+
+_ 7 4 6 3 1 2 9 8
+  |             |
+  L             R
+
+从右边起，找比5小的数放在_的位置
+2 7 4 6 3 1 _ 9 8
+  |         |   
+  L         R
+
+从左边起，找比5大的数放在_的位置
+2 _ 4 6 3 1 7 9 8
+  |         |   
+  L         R
+
+2 1 4 6 3 _ 7 9 8
+  |       |   
+  L       R
+
+2 1 4 _ 3 6 7 9 8
+      |   |   
+      L   R
+
+2 1 4 3 _ 6 7 9 8
+        |   
+       L R
+
+一次partition的过程结束
+
+2 1 4 3 5 6 7 9 8
+        |   
+       L R
+-- 5 放在的他该在的位置
+</code></pre>
+<p><strong>partition 函数的实现：</strong></p>
+<p>这里的partition函数使用直接覆盖的方式。</p>
+<pre><code class="language-cpp">int partition(Elemtype *A, int low, int high)
+{
+    Elemtype pivot=A[low];//拿最左边的元素作为分割值
+    while (low&lt;high)
+    {
+        //从后往前找一个比pivot小的值
+        while (low&lt;high &amp;&amp; A[high]&gt;=pivot)
+        {
+            high--;
+        }
+        A[low]=A[high];
+        //从前往后找一个比pivot大的值
+        while (low&lt;high &amp;&amp; A[low]&lt;=pivot)
+        {
+            low++;
+        }
+        A[high]=A[low];
+    }
+    //外层循环结束之后low=high=留给pivot的空位
+    A[low]=pivot;
+    return low;
+}
+</code></pre>
+<p><strong>测试partition函数：</strong></p>
+<p>给定一个长度为10数组，测试partition函数是否可以将数组的第一个元素放置归位</p>
+<p>（左边都小于该元素，右边都大于该元素）</p>
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+#include &lt;string.h&gt;
+
+typedef int Elemtype;
+typedef struct {
+    Elemtype *elem;
+    int len;
+} SSTable;
+
+
+//初始化用来存放数组和数组长度的结构体
+void STInit(SSTable &amp;ST, int len) {
+    ST.len = len;
+    ST.elem = (Elemtype *) malloc(sizeof(Elemtype) * ST.len);
+    int i;
+    srand(time(NULL));
+    for (i = 0; i &lt; ST.len; i++) {
+        ST.elem[i] = rand() % 100;
+    }
+}
+
+void PrintST(SSTable ST) {
+    for (int i = 0; i &lt; ST.len; i++) {
+        printf(&quot;%3d&quot;, ST.elem[i]);
+    }
+    printf(&quot;\n&quot;);
+}
+
+int main() {
+    SSTable S;
+    STInit(S, 10);
+    Elemtype A[10] = {64, 94, 95, 79, 69, 84, 18, 22, 12, 78};
+    memcpy(S.elem, A, sizeof(A));
+    PrintST(S);
+    partition(S.elem,0,9);
+    PrintST(S);
+    return 0;
+}
+</code></pre>
+<p><strong>运行结果：</strong></p>
+<pre><code>/Users/uichuan/Documents/library/DataStructure/codes/Sort-QuickSort/cmake-build-debug/Sort_QuickSort
+ 64 94 95 79 69 84 18 22 12 78
+ 12 22 18 64 69 84 79 95 94 78
+</code></pre>
+<p>元素64成功放在它的位置。</p>
+<p><strong>快速排序实现：</strong></p>
+<pre><code class="language-cpp">void QuickSort(Elemtype *A, int low, int high) {
+    if (low&lt;high)
+    {
+        int pivot_pos= partition(A,low,high);
+        QuickSort(A,low,pivot_pos-1);
+        QuickSort(A,pivot_pos+1,high);
+    }
+}
+</code></pre>
+<p>每次使用partition分成两部分，左右依次递归</p>
+<p><strong>全部代码：</strong></p>
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+#include &lt;string.h&gt;
+
+typedef int Elemtype;
+typedef struct {
+    Elemtype *elem;
+    int len;
+} SSTable;
+
+
+//初始化用来存放数组和数组长度的结构体
+void STInit(SSTable &amp;ST, int len) {
+    ST.len = len;
+    ST.elem = (Elemtype *) malloc(sizeof(Elemtype) * ST.len);
+    int i;
+    srand(time(NULL));
+    for (i = 0; i &lt; ST.len; i++) {
+        ST.elem[i] = rand() % 100;
+    }
+}
+
+void PrintST(SSTable ST) {
+    for (int i = 0; i &lt; ST.len; i++) {
+        printf(&quot;%3d&quot;, ST.elem[i]);
+    }
+    printf(&quot;\n&quot;);
+}
+
+int partition(Elemtype *A, int low, int high)
+{
+    Elemtype pivot=A[low];//拿最左边的元素作为分割值
+    while (low&lt;high)
+    {
+        //从后往前找一个比pivot小的值
+        while (low&lt;high &amp;&amp; A[high]&gt;=pivot)
+        {
+            high--;
+        }
+        A[low]=A[high];
+        //从前往后找一个比pivot大的值
+        while (low&lt;high &amp;&amp; A[low]&lt;=pivot)
+        {
+            low++;
+        }
+        A[high]=A[low];
+    }
+    //外层循环结束之后low=high=留给pivot的空位
+    A[low]=pivot;
+    return low;
+}
+
+void QuickSort(Elemtype *A, int low, int high) {
+    if (low&lt;high)
+    {
+        int pivot_pos= partition(A,low,high);
+        QuickSort(A,low,pivot_pos-1);
+        QuickSort(A,pivot_pos+1,high);
+    }
+}
+
+int main() {
+    SSTable S;
+    STInit(S, 10);
+    PrintST(S);
+    QuickSort(S.elem,0,9);
+    PrintST(S);
+    return 0;
+}
+</code></pre>
+<p><strong>快速排序的时间复杂度</strong></p>
+<p>假如每次快速排序数组都被平均地一分为二，那么可以得出 QuickSort 递归的次数是 log2n，
+第一次partition遍历次数为 n，分成两个数组后，每个数组遍历 n/2 次，加起来还是n。因此时间复杂度是O(nlog2n)。</p>
+<p>如果每次我们仍然用最左边的数作为分割值，那么每次数组都不会二分，</p>
+<p>导致递归n次，<strong>所以快速排序最坏时间复杂度为n的平方</strong></p>
+<p>为了避免这种情况，有时会首先随机选择一个下标，先将对应下标的值与最左边的元素交换，再进行partition操作。</p>
+<p>因此快序最好和平均时间复杂度是O(log2n)，最差是O(n^2)</p>
+<p>快排的空间复杂度是O(log2n)，因此递归的次数是log2n，每次递归都需要占用空间。</p>
+<h2 id="2">2.插入排序</h2>
+<ul>
+<li>直接插入排序</li>
+<li>折半插入排序</li>
+<li>希尔排序</li>
+</ul>
+<h3 id="21">2.1 直接插入排序</h3>
+<p>如果序列只有一个数，序列就是有序的。插入排序首先将第一个数视为有序序列。</p>
+<p>然后后面9个数视为要依次插入的序列</p>
+<p><strong>直接插入排序的实现：</strong></p>
+<pre><code class="language-cpp">void InsertSort(Elemtype *A,int n)
+{
+    int i,j,insertVal;
+    for(i=1;i&lt;n;i++)
+    {
+        insertVal=A[i];
+        for(j=i-1;j&gt;=0&amp;&amp;A[j]&gt;insertVal;j--)
+        {
+            A[j+1]=A[j];
+        }
+        A[j+1]=insertVal;
+    }
+}
+</code></pre>
+<p><strong>全部代码：</strong></p>
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+typedef int Elemtype;
+typedef struct {
+    Elemtype *elem;
+    int len;
+} SSTable;
+
+//初始化用来存放数组和数组长度的结构体
+void STInit(SSTable &amp;ST, int len) {
+    ST.len = len;
+    ST.elem = (Elemtype *) malloc(sizeof(Elemtype) * ST.len);
+    int i;
+    srand(time(NULL));
+    for (i = 0; i &lt; ST.len; i++) {
+        ST.elem[i] = rand() % 100;
+    }
+}
+
+void PrintST(SSTable ST) {
+    for (int i = 0; i &lt; ST.len; i++) {
+        printf(&quot;%3d&quot;, ST.elem[i]);
+    }
+    printf(&quot;\n&quot;);
+}
+
+void InsertSort(Elemtype *A,int n)
+{
+    int i,j,insertVal;
+    for(i=1;i&lt;n;i++)
+    {
+        insertVal=A[i];
+        for(j=i-1;j&gt;=0&amp;&amp;A[j]&gt;insertVal;j--)
+        {
+            A[j+1]=A[j];
+        }
+        A[j+1]=insertVal;
+    }
+}
+
+int main() {
+    SSTable S;
+    STInit(S,10);
+    PrintST(S);
+    InsertSort(S.elem,10);
+    PrintST(S);
+    return 0;
+}
+</code></pre>
+<p><strong>运行结果：</strong></p>
+<pre><code class="language-cpp">/Users/uichuan/Documents/library/DataStructure/codes/Sort-InsertSort/cmake-build-debug/Sort_InsertSort
+ 44 74 14 15 86 10 33 86 16 65
+ 10 14 15 16 33 44 65 74 86 86
+
+Process finished with exit code 0
+</code></pre>
+<p><strong>时间复杂度&amp;空间复杂度：</strong></p>
+<p>随着有序序列的不断增加，插入排序比较的次数也会增加。</p>
+<p>插入排序的执行次数也是从1增加到n-1，总运行次数是n（n-1）/2。</p>
+<p><strong>时间复杂度依然为O（n^2）</strong>。</p>
+<p>因为未使用额外的空间，所以空间复杂度为O(1).</p>
+<p>如果数组本身有序，那么最好的时间复杂度就是O（n）。</p>
+<h2 id="3">3.选择排序</h2>
+<ul>
+<li>简单选择排序</li>
+<li>堆排序</li>
+</ul>
+<h3 id="31">3.1简单选择排序</h3>
+<p><a href="https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html">选择排序演示🎈</a></p>
+<p><strong>选择排序的原理：</strong></p>
+<p>有一组序列：</p>
+<pre><code> 19 21 79  9  8 81 76 91 83 44
+ |
+ min
+</code></pre>
+<p>假定第一个元素是最小值，依次遍历min之后的部分，</p>
+<pre><code> 19 21 79  9  8 81 76 91 83 44
+           |
+          min
+</code></pre>
+<p>找到最小值后与第一个元素交换</p>
+<pre><code> 9 21 79 19  8 81 76 91 83 44
+    |
+   min
+</code></pre>
+<p>假定第二个元素为最小值，依次遍历min之后的部分</p>
+<pre><code> 9 21 79 19  8 81 76 91 83 44
+             |
+            min
+</code></pre>
+<p>找到最小值后与第一个元素交换</p>
+<pre><code> 9 8  79 19 21 81 76 91 83 44
+       |
+      min
+</code></pre>
+<p>假定第三个元素为最小值，依次遍历min之后的部分</p>
+<p>......依次循环</p>
+<p><strong>选择排序的实现：</strong></p>
+<pre><code class="language-cpp">void SelectSort(Elemtype *A,int n)
+{
+    int i,j,min;//分别定义内外层的循环变量以及用于标识最小值的变量min
+    for(i=0;i&lt;n-1;i++)
+    {
+        // min现标注最小值
+        min=i;
+        for(j=i+1;j&lt;n;j++)
+        {
+            // 如果找到应该小于min的，则min重新标注为那个值
+            if(A[min]&gt;A[j])
+            {
+                min=j;
+            }
+            //循环结束后，min标识的就是后续序列的最小值
+        }
+        //进行交换
+        swap(A[i],A[min]);
+    }
+}
+</code></pre>
+<p><strong>全部代码：</strong></p>
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+#include &lt;string.h&gt;
+
+typedef int Elemtype;
+typedef struct {
+    Elemtype *elem;
+    int len;
+} SSTable;
+
+
+//初始化用来存放数组和数组长度的结构体
+void STInit(SSTable &amp;ST, int len) {
+    ST.len = len;
+    ST.elem = (Elemtype *) malloc(sizeof(Elemtype) * ST.len);
+    int i;
+    srand(time(NULL));
+    for (i = 0; i &lt; ST.len; i++) {
+        ST.elem[i] = rand() % 100;
+    }
+}
+
+void PrintST(SSTable ST) {
+    for (int i = 0; i &lt; ST.len; i++) {
+        printf(&quot;%3d&quot;, ST.elem[i]);
+    }
+    printf(&quot;\n&quot;);
+}
+
+void swap(Elemtype &amp;a, Elemtype &amp;b) {
+    Elemtype tmp;
+    tmp = a;
+    a = b;
+    b = tmp;
+}
+
+void SelectSort(Elemtype *A,int n)
+{
+    int i,j,min;
+    for(i=0;i&lt;n-1;i++)
+    {
+        min=i;
+        for(j=i+1;j&lt;n;j++)
+        {
+            if(A[min]&gt;A[j])
+            {
+                min=j;
+            }
+        }
+        swap(A[i],A[min]);
+    }
+}
+
+int main()
+{
+    SSTable S;
+    STInit(S,10);
+    PrintST(S);
+    SelectSort(S.elem,10);
+    PrintST(S);
+}
+</code></pre>
+<p><strong>选择排序的时间复杂度与空间复杂度：</strong></p>
+<p>选择排序虽然减少了交换次数，但是循环比较的次数依然和冒泡排序是一样的，都是从1到N-1，</p>
+<p>总运行次数为N（N-1）/2。</p>
+<p>时间复杂度为O(n^2)</p>
+<p>因为未使用额外的空间，所以空间复杂度为O(1)</p>
+<h3 id="32">3.2堆排序</h3>
+<p><a href="https://www.cs.usfca.edu/~galles/visualization/HeapSort.html">堆排序演示🎈</a></p>
+<h4 id="321">3.2.1前戏：堆</h4>
+<p>堆是一种基于树的数据结构。满足以下特性的树称为堆：</p>
+<p>给定堆中任意结点P和c，若P是C的父结点，则P的值小于等于（大于等于）C的值。</p>
+<ul>
+<li>小根堆（最小堆）：父节点小于子结点</li>
+<li>大根堆（最大堆）：父节点大于子结点</li>
+</ul>
+<p>堆最顶端的结点称为根结点，根节点没有父结点。</p>
+<p><strong>将二叉树中的每个元素对应到数组下标，这样的数据结构称之为堆</strong></p>
+<h4 id="322">3.2.2向下调整</h4>
+<p>针对一棵子树，使用向下调整函数，可以使一棵子树成为堆</p>
+<p><strong>需要注意的点：</strong></p>
+<ul>
+<li>左右孩子的边界问题</li>
+<li>循环的终止条件</li>
+</ul>
+<pre><code class="language-cpp">void AdjustDown(Elemtype *A, int d, int len) {
+    int dad = d;
+    int son = 2 * dad + 1; //左孩子的下标
+    while (son &lt;= len) {
+        if (son + 1 &lt;= len &amp;&amp; A[son] &lt; A[son + 1]) {
+            son++;
+        }
+        if (A[son] &gt; A[dad]) {
+            swap(A[son], A[dad]);
+            dad = son;
+            son = 2 * dad + 1;
+        } else {
+            break;
+        }
+    }
+}
+</code></pre>
+<h4 id="323">3.2.3堆排序</h4>
+<pre><code class="language-cpp">void HeapSort(Elemtype *A,int len)
+{
+    int i;
+    //建立一个堆
+    for(i=len/2;i&gt;=0;i--)
+    {
+        AdjustDown(A,i,len);
+    }
+    //每次取最有一个元素与堆顶元素交换位置。
+    //之后将len-1长度的数组进行向下调整。
+    for(i=len;i&gt;0;i--)
+    {
+        AdjustDown(A,0,i);
+        swap(A[0],A[i]);
+    }
+}
+</code></pre>
+<p><strong>全部代码：</strong></p>
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+#include &lt;string.h&gt;
+
+typedef int Elemtype;
+typedef struct {
+    Elemtype *elem;
+    int len;
+} SSTable;
+
+
+//初始化用来存放数组和数组长度的结构体
+void STInit(SSTable &amp;ST, int len) {
+    ST.len = len;
+    ST.elem = (Elemtype *) malloc(sizeof(Elemtype) * ST.len);
+    int i;
+    srand(time(NULL));
+    for (i = 0; i &lt; ST.len; i++) {
+        ST.elem[i] = rand() % 100;
+    }
+}
+
+void PrintST(SSTable ST) {
+    for (int i = 0; i &lt; ST.len; i++) {
+        printf(&quot;%3d&quot;, ST.elem[i]);
+    }
+    printf(&quot;\n&quot;);
+}
+
+void swap(Elemtype &amp;a, Elemtype &amp;b) {
+    Elemtype tmp;
+    tmp = a;
+    a = b;
+    b = tmp;
+}
+
+
+//向下调整
+void AdjustDown(Elemtype *A, int d, int len) {
+    int dad = d;
+    int son = 2 * dad + 1; //左孩子的下标
+    while (son &lt;= len) {
+        if (son + 1 &lt;= len &amp;&amp; A[son] &lt; A[son + 1]) {
+            son++;
+        }
+        if (A[son] &gt; A[dad]) {
+            swap(A[son], A[dad]);
+            dad = son;
+            son = 2 * dad + 1;
+        } else {
+            break;
+        }
+    }
+}
+
+void HeapSort(Elemtype *A,int len)
+{
+    int i;
+    for(i=len/2;i&gt;=0;i--)
+    {
+        AdjustDown(A,i,len);
+    }
+    for(i=len;i&gt;0;i--)
+    {
+        AdjustDown(A,0,i);
+        swap(A[0],A[i]);
+    }
+}
+
+int main() {
+    SSTable ST;
+    STInit(ST, 10);
+//    Elemtype A[10] = {3, 87, 2, 93, 78, 56, 61, 38, 12, 40};
+//    memcpy(ST.elem, A, sizeof(A));
+    PrintST(ST);
+    HeapSort(ST.elem,9);
+
+    PrintST(ST);
+}
+</code></pre>
+<pre><code>/Users/uichuan/Documents/library/DataStructure/codes/Sort-HeapSort/cmake-build-debug/Sort_HeapSort
+  7 69 95 16 75 70 89 98 12 81
+  7 12 16 69 70 75 81 89 95 98
+
+Process finished with exit code 0
+</code></pre>
+<p><strong>堆排序的时间复杂度与空间复杂度：</strong></p>
+<p>AdjustDown函数的循环次数是log2n</p>
+<p>HeapSort函数第一个for循环执行了n/2次</p>
+<p>第一个for循环执行了n次</p>
+<p>总计次数为3/2nlog2n次，因此时间复杂度是O（nlog2n）</p>
+<p>堆排最好、最坏、平均时间复杂度都是 <em>O</em>(<em>n</em>log2<em>n</em>)。</p>
+<p>堆排的空间复杂度是 <em>O</em>(1)，因为没有使用与 n 相关的额外空间。</p>
+<h2 id="4">4.归并排序</h2>
+<p>一个数组如果分两段有序，那么可以使用一次<strong>归并</strong>让整个数组有序。</p>
+<p>例如：</p>
+<pre><code>A={1,5,7,9,    2,3,4,8} 分两段有序
+
+需要申请一块额外的空间来存储排好序的数组。
+</code></pre>
+<h3 id="41-merge">4.1 Merge函数</h3>
+<p>通过一次merge函数的调用，可以使有序的两个小数组合并成一个有序数组。</p>
+<p><strong>merge函数的实现：</strong></p>
+<pre><code class="language-cpp">void Merge(Elemtype *A, int low, int mid, int high) {
+    static Elemtype B[N];
+    int i, j, k;
+    // 复制元素
+    for (k = low; k &lt;= high; k++) {
+        B[k] = A[k];
+    }
+    for (i = low, j = mid + 1, k = i; i &lt;= mid &amp;&amp; j &lt;= high; k++) {
+        if (B[i] &lt; B[j]) {
+            A[k] = B[i++];
+        } else {
+            A[k] = B[j++];
+        }
+    }
+    //剩下一部分直接放入有序数组
+    while (i &lt;= mid) {
+        A[k++] = B[i++];
+    }
+    while (j &lt;= high) {
+        A[k++] = B[j++];
+    }
+}
+</code></pre>
+<p><strong>测试代码：</strong></p>
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+#define N 7
+typedef int Elemtype;
+
+void PrintArr(Elemtype *A,int len)
+{
+    for(int i=0;i&lt;len;i++)
+    {
+        printf(&quot;%3d&quot;,A[i]);
+    }
+    printf(&quot;\n&quot;);
+}
+
+void Merge(Elemtype *A, int low, int mid, int high) {
+    static Elemtype B[N];
+    int i, j, k;
+    // 复制元素
+    for (k = low; k &lt;= high; k++) {
+        B[k] = A[k];
+    }
+    for (i = low, j = mid + 1, k = i; i &lt;= mid &amp;&amp; j &lt;= high; k++) {
+        if (B[i] &lt; B[j]) {
+            A[k] = B[i++];
+        } else {
+            A[k] = B[j++];
+        }
+    }
+    //剩下一部分直接放入有序数组
+    while (i &lt;= mid) {
+        A[k++] = B[i++];
+    }
+    while (j &lt;= high) {
+        A[k++] = B[j++];
+    }
+}
+int main() {
+    Elemtype A[] = {1, 5, 7, 9, 2, 3, 4, 8};
+    PrintArr(A,8);
+    Merge(A,0,3,7);
+    PrintArr(A,8);
+    return 0;
+}
+</code></pre>
+<h3 id="42">4.2 归并排序的递归实现</h3>
+<p><strong>MergeSort函数的实现：</strong></p>
+<p>总体思路</p>
+<ul>
+<li>将整个数组分成左右两部分</li>
+<li>左右两部分分别递归进行归并排序</li>
+<li>Merge合并左右两部分已经有序的小数组</li>
+</ul>
+<p>最后通过merge得到最终的有序数组。</p>
+<pre><code class="language-cpp">void MergeSort(Elemtype *A,int low,int high)
+{
+    if (low&lt;high)
+    {
+        int mid=(low+high)/2;
+        MergeSort(A,low,mid);
+        MergeSort(A,mid+1,high);
+        Merge(A,low,mid,high);
+    }
+}
+</code></pre>
+<p><strong>全部代码：</strong></p>
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+#define N 7
+typedef int Elemtype;
+
+void PrintArr(Elemtype *A,int len)
+{
+    for(int i=0;i&lt;len;i++)
+    {
+        printf(&quot;%3d&quot;,A[i]);
+    }
+    printf(&quot;\n&quot;);
+}
+
+void Merge(Elemtype *A, int low, int mid, int high) {
+    static Elemtype B[N];
+    int i, j, k;
+    // 复制元素
+    for (k = low; k &lt;= high; k++) {
+        B[k] = A[k];
+    }
+    for (i = low, j = mid + 1, k = i; i &lt;= mid &amp;&amp; j &lt;= high; k++) {
+        if (B[i] &lt; B[j]) {
+            A[k] = B[i++];
+        } else {
+            A[k] = B[j++];
+        }
+    }
+    //剩下一部分直接放入有序数组
+    while (i &lt;= mid) {
+        A[k++] = B[i++];
+    }
+    while (j &lt;= high) {
+        A[k++] = B[j++];
+    }
+
+
+}
+
+void MergeSort(Elemtype *A,int low,int high)
+{
+    if (low&lt;high)
+    {
+        int mid=(low+high)/2;
+        MergeSort(A,low,mid);
+        MergeSort(A,mid+1,high);
+        Merge(A,low,mid,high);
+    }
+}
+int main() {
+    Elemtype A[] = {1, 5, 7, 9, 2, 3, 4, 8};
+    printf(&quot;--------Merge Test--------\n&quot;);
+    PrintArr(A,8);
+    Merge(A,0,3,7);
+    PrintArr(A,8);
+    printf(&quot;--------MergeSort Test--------\n&quot;);
+    Elemtype Arr[] = {2,1,5,4,6,9,7,3};
+    PrintArr(Arr,8);
+    MergeSort(Arr,0,7);
+    PrintArr(Arr,8);
+    return 0;
+}
+</code></pre>
+<p><strong>测试结果：</strong></p>
+<pre><code class="language-cpp">/Users/uichuan/Documents/library/DataStructure/codes/Sort-MergeSort/cmake-build-debug/Sort_MergeSort
+--------Merge Test--------
+  1  5  7  9  2  3  4  8
+  1  2  3  4  5  7  8  9
+--------MergeSort Test--------
+  2  1  5  4  6  9  7  3
+  1  2  3  4  5  6  7  9
+
+Process finished with exit code 0
+</code></pre>
+<p><strong>时间复杂度与空间复杂度：</strong></p>
+<p>MergeSort函数的递归次数为log2n，</p>
+<p>Merge函数循环了n次，因此时间复杂度是O(nlog2n)</p>
+<p>归并排序最好，最坏，平均时间复杂度都是O(nlog2n)</p>
+<p>归并排序的空间复杂度是O(n)，因为在Merge函数的过程中使用了另外的一个等长数组。</p>
+<h2 id="5">5.排序算法时间&amp;空间复杂度汇总</h2>
+<p><img alt="image-20221124201350893" src="../assets/image-20221124201350893.png" /></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../../search/search/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 7.查找" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              7.查找
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.48f2be22.min.js"></script>
+      
+    
+  </body>
+</html>

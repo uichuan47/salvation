@@ -1,0 +1,1466 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.0">
+    
+    
+      
+        <title>7.查找 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2e8b5541.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              7.查找
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          C(2022)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C(2022)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          C(2022)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%282022%29/before/before/" class="md-nav__link">
+        1.数据类型和输入输出
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%282022%29/scanf/scanf/" class="md-nav__link">
+        2.scanf
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%282022%29/expression/expression/" class="md-nav__link">
+        3.运算符与逻辑运算
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%282022%29/pointer/pointer/" class="md-nav__link">
+        4.指针
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%282022%29/struct/struct/" class="md-nav__link">
+        5.结构体
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          DataStruct
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="DataStruct" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          DataStruct
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../complexity/complexity/" class="md-nav__link">
+        1.时间&空间复杂度
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LinearList/LinearList/" class="md-nav__link">
+        2.线性表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stack/stack/" class="md-nav__link">
+        3.栈
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../queue/queue/" class="md-nav__link">
+        4.队列
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tree/tree/" class="md-nav__link">
+        5.树
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          7.查找
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        7.查找
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.顺序查找
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.二分查找
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.二叉查找树
+  </a>
+  
+    <nav class="md-nav" aria-label="3.二叉查找树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1.非递归建立二叉查找树
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2.递归建立二叉查找树
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3.使用二叉查找树查找
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.二叉查找树删除元素
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4bst-2014-42" class="md-nav__link">
+    4.BST-2014-42
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sort/sort/" class="md-nav__link">
+        8.排序
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.顺序查找
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.二分查找
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.二叉查找树
+  </a>
+  
+    <nav class="md-nav" aria-label="3.二叉查找树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1.非递归建立二叉查找树
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    2.递归建立二叉查找树
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3.使用二叉查找树查找
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4.二叉查找树删除元素
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4bst-2014-42" class="md-nav__link">
+    4.BST-2014-42
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">查找算法</h1>
+<h3 id="1">1.顺序查找</h3>
+<p>顺序查找又称为线性查找，对于顺序表和链表都适用。</p>
+<p>这里的顺序查找适用的<strong>哨兵：</strong></p>
+<p>将要查找的数组的第0个位置留给哨兵，从后向前循环，可以更加简洁</p>
+<pre><code class="language-cpp">ElemType ST_Search(SSTable ST, ElemType key)
+{
+    ST.elem[0] = key;
+    int i;
+    for (i = ST.TableLen-1; ST.elem[i] != ST.elem[0] ;i--) {
+    }
+    return i;
+}
+</code></pre>
+<p><strong>全部代码：</strong></p>
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+typedef int ElemType;
+typedef struct SSTable{
+    ElemType *elem;
+    int TableLen;
+};
+
+void ST_Init(SSTable &amp;ST,int length)
+{
+    ST.TableLen = length + 1;
+    ST.elem = (ElemType*) malloc(sizeof (SSTable) * ST.TableLen);
+    int i;
+    srand(time(NULL));
+    for (i=1;i&lt;ST.TableLen;i++)
+    {
+        ST.elem[i] = rand() % 100;
+    }
+}
+
+
+void ST_Print(SSTable ST)
+{
+    for (int i = 1; i &lt; ST.TableLen; ++i) {
+        printf(&quot;%3d&quot;,ST.elem[i]);
+    }
+    printf(&quot;\n&quot;);
+}
+
+ElemType ST_Search(SSTable ST, ElemType key)
+{
+    ST.elem[0] = key;
+    int i;
+    for (i = ST.TableLen-1; ST.elem[i] != ST.elem[0] ;i--) {
+    }
+    return i;
+}
+int main() {
+    SSTable ST;
+    ST_Init(ST,15);
+    ST_Print(ST);
+    ElemType res;
+    ElemType key;
+    scanf(&quot;%d&quot;,&amp;key);
+    res= ST_Search(ST,key);
+    if (res)
+    {
+        printf(&quot;search_res-&gt;%d\n&quot;,res);
+    } else{
+        printf(&quot;not find\n&quot;);
+    }
+    return 0;
+}
+</code></pre>
+<h3 id="2">2.二分查找</h3>
+<p><a href="https://www.cs.usfca.edu/~galles/visualization/Search.html">二分查找演示🎈</a></p>
+<p><strong>二分查找也叫折半查找</strong>，它仅仅是用于<strong>有序的顺序表</strong></p>
+<p>二分查找的基本思想：</p>
+<ol>
+<li>将给定的key与表中间位置的元素比较，如果相同-&gt;查找成功</li>
+<li>如果不同，在中间元素的前半段或后半段分别进行第一步的操作，直到查找成功</li>
+<li>如果实在没有找到元素，则查找不成功</li>
+</ol>
+<p>演示的过程：</p>
+<ol>
+<li>初始化顺序表，放入10个元素</li>
+<li>适用qsort接口进行排序，并打印</li>
+<li>进行查找</li>
+</ol>
+<p><strong>二分查找代码：</strong></p>
+<pre><code class="language-cpp">ElemType BinarySearch(SSTable L,ElemType key)
+{
+    int low=0;
+    int high=L.TableLen-1;
+    int mid;
+    while (low&lt;=high)
+    {
+        mid=(low+high)/2;
+        if(key&gt;L.elem[mid])
+        {
+            low=mid+1;
+        } else if(key&lt;L.elem[mid])
+        {
+            high=mid-1;
+        } else{
+            return mid;
+        }
+    }
+    return -1;
+}
+</code></pre>
+<p><strong>全部代码：</strong></p>
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+
+typedef int ElemType;
+typedef struct SSTable{
+    ElemType *elem;
+    int TableLen;
+};
+
+void ST_Init(SSTable &amp;ST,int length)
+{
+    ST.TableLen = length;
+    ST.elem = (ElemType*) malloc(sizeof (SSTable) * ST.TableLen);
+    int i;
+    srand(time(NULL));
+    for (i=0;i&lt;ST.TableLen;i++)
+    {
+        ST.elem[i] = rand() % 100;
+    }
+}
+
+
+void ST_Print(SSTable ST)
+{
+    for (int i = 0; i &lt; ST.TableLen; ++i) {
+        printf(&quot;%3d&quot;,ST.elem[i]);
+    }
+    printf(&quot;\n&quot;);
+}
+
+ElemType BinarySearch(SSTable L,ElemType key)
+{
+    int low=0;
+    int high=L.TableLen-1;
+    int mid;
+    while (low&lt;=high)
+    {
+        mid=(low+high)/2;
+        if(key&gt;L.elem[mid])
+        {
+            low=mid+1;
+
+        } else if(key&lt;L.elem[mid])
+        {
+            high=mid-1;
+        } else{
+            return mid;
+        }
+    }
+    return -1;
+
+}
+
+//函数名中存的是函数的入口地址，也是一个指针（函数指针）
+//qsort规定如果left指针指向的值大于right指针指向的值，返回正值，否则返回负
+int compare(const void *left,const void *right)
+{
+    return *(int*)left-*(int*)right;
+}
+
+int main() {
+    SSTable ST;
+    ST_Init(ST,10);
+    ST_Print(ST);
+    qsort(ST.elem,ST.TableLen,sizeof (ElemType),compare);
+    ST_Print(ST);
+    ElemType key;
+    printf(&quot;please input search key:\n&quot;);
+    scanf(&quot;%d&quot;,&amp;key);
+    int res;
+    res = BinarySearch(ST,key);
+    if (res!=-1)
+    {
+        printf(&quot;search res-&gt;%d\n&quot;,res);
+    } else{
+        printf(&quot;not find\n&quot;);
+    }
+    return 0;
+}
+</code></pre>
+<p><strong>qsort接口</strong></p>
+<pre><code class="language-c">void qsort(void *base, size_t nitems, size_t size, int (*compar)(const void *, const void*))
+</code></pre>
+<ul>
+<li>base --指向要排序数组的指针</li>
+<li>nitems --数组中元素的个数</li>
+<li>size -- 数组中每个元素的大小 (sizeof(int))</li>
+<li>compar -- 比较两个元素的函数，返回值必须是指定类型(这里是int)</li>
+</ul>
+<blockquote>
+<p>qsort规定如果left指针指向的值大于right指针指向的值，返回正值，否则返回负，相等返回0</p>
+</blockquote>
+<p><strong>qsort接口的例子：</strong></p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int values[] = { 88, 56, 100, 2, 25 };
+
+int cmpfunc (const void * a, const void * b)
+{
+   return ( *(int*)a - *(int*)b );
+}
+
+int main()
+{
+   int n;
+
+   printf(&quot;排序之前的列表：\n&quot;);
+   for( n = 0 ; n &lt; 5; n++ ) {
+      printf(&quot;%d &quot;, values[n]);
+   }
+
+   qsort(values, 5, sizeof(int), cmpfunc);
+
+   printf(&quot;\n排序之后的列表：\n&quot;);
+   for( n = 0 ; n &lt; 5; n++ ) {
+      printf(&quot;%d &quot;, values[n]);
+   }
+
+  return(0);
+}
+</code></pre>
+<p>运行结果：</p>
+<pre><code>排序之前的列表：
+88 56 100 2 25 
+排序之后的列表：
+2 25 56 88 100
+</code></pre>
+<h3 id="3">3.二叉查找树</h3>
+<p><a href="https://www.cs.usfca.edu/~galles/visualization/BST.html">二叉排序树演示🎈</a></p>
+<p>二叉查找树也叫二叉排序树，或者是一棵空树。</p>
+<p>具有以下的特性：</p>
+<ul>
+<li>如果左子树非空，则左子树上所有结点的值均小于根结点</li>
+<li>如果右子树非空，则右子树上所有结点的值均大于根结点</li>
+<li>左右子树也分别是一棵二叉排序树</li>
+</ul>
+<blockquote>
+<p>看任何一个最小单元的树的组成部分，左孩子结点小于根节点，右孩子结点大于根结点</p>
+</blockquote>
+<p>例如：</p>
+<p><img alt="image-20221120220752487" src="../assets/image-20221120220752487.png" /></p>
+<p>使用二叉查找树查找元素，查找的最多次数就是树的高度。</p>
+<p>中序遍历二叉查找树，得到的是从小到大的结果</p>
+<h4 id="1_1">1.非递归建立二叉查找树</h4>
+<ul>
+<li>parent节点用来指示要插入的位置的父亲节点</li>
+<li>当找到为NULL的p节点时，跳出循环</li>
+</ul>
+<pre><code class="language-cpp">void Creat_BST(BiTree &amp;T, KeyType *str, int len) {
+    int i;
+    for (i = 0; i &lt; len; i++) {
+        BST_Insert(T, str[i]);
+    }
+}
+
+int BST_Insert(BiTree &amp;T, KeyType k) {
+    BiTree TreeNew = (BiTree) calloc(1, sizeof(BSTNode));
+    TreeNew-&gt;Key=k;
+    if (NULL==T)
+    {
+        T=TreeNew;
+        return 0;
+    }
+    //用来遍历树
+    BiTree p=T,parent;
+    while (p)
+    {
+        parent=p;
+        if (k&gt;p-&gt;Key)
+        {
+            p=p-&gt;rchild;
+        } else if (k&lt;p-&gt;Key)
+        {
+            p=p-&gt;lchild;
+        } else{
+            //相等的元素不放入查找树，返回-1
+            return -1;
+        }
+    }
+    if (k&gt;parent-&gt;Key)
+    {
+        parent-&gt;rchild=TreeNew;
+    } else{
+        parent-&gt;lchild=TreeNew;
+    }
+    return 0;
+}
+</code></pre>
+<h4 id="2_1">2.递归建立二叉查找树</h4>
+<pre><code class="language-cpp">int RecurveBST_Insert(BiTree &amp;T,KeyType k)
+{
+    if (NULL==T)
+    {
+        T=(BiTree) malloc(sizeof (BSTNode));
+        T-&gt;Key=k;
+        T-&gt;lchild=T-&gt;rchild=NULL;
+        return 1;
+    } else if(k==T-&gt;Key)
+    {
+        return 0;
+    } else if (k&lt;T-&gt;Key)
+    {
+        return BST_Insert(T-&gt;lchild,k);
+    } else{
+        return BST_Insert(T-&gt;rchild,k);
+    }
+}
+</code></pre>
+<blockquote>
+<p>函数int RecurveBST_Insert(BiTree &amp;T,KeyType k)传入引用类型</p>
+</blockquote>
+<p><strong>在递归过程中，递归时传入的参数依然是引用类型</strong></p>
+<h4 id="3_1">3.使用二叉查找树查找</h4>
+<pre><code class="language-cpp">BiTree BST_Search(BiTree T,KeyType k,BiTree &amp;parent)
+{
+    parent=NULL;
+    while (T!=NULL &amp;&amp; k!=T-&gt;Key)
+    {
+        parent=T;
+        if (k&gt;T-&gt;Key)
+        {
+            T=T-&gt;rchild;
+        } else{
+            T=T-&gt;lchild;
+        }
+    }
+    return T;
+}
+</code></pre>
+<p><strong>全部代码：</strong></p>
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &quot;stdlib.h&quot;
+
+//二叉排序树
+
+typedef int KeyType;
+typedef struct BSTNode {
+    KeyType Key;
+    struct BSTNode *lchild, *rchild;
+} BSTNode, *BiTree;
+
+//非递归创建二叉查找树
+int BST_Insert(BiTree &amp;T, KeyType k) {
+    BiTree TreeNew = (BiTree) calloc(1, sizeof(BSTNode));
+    TreeNew-&gt;Key=k;
+    if (NULL==T)
+    {
+        T=TreeNew;
+        return 0;
+    }
+    //用来遍历树
+    BiTree p=T,parent;
+    while (p)
+    {
+        parent=p;
+        if (k&gt;p-&gt;Key)
+        {
+            p=p-&gt;rchild;
+        } else if (k&lt;p-&gt;Key)
+        {
+            p=p-&gt;lchild;
+        } else{
+            //相等的元素不放入查找树，返回-1
+            return -1;
+        }
+    }
+    if (k&gt;parent-&gt;Key)
+    {
+        parent-&gt;rchild=TreeNew;
+    } else{
+        parent-&gt;lchild=TreeNew;
+    }
+    return 0;
+}
+
+void Creat_BST(BiTree &amp;T, KeyType *str, int len) {
+    int i;
+    for (i = 0; i &lt; len; i++) {
+        BST_Insert(T, str[i]);
+    }
+}
+
+
+void InOrder(BiTree T)
+{
+    if (T!=NULL)
+    {
+        InOrder(T-&gt;lchild);
+        printf(&quot;%3d&quot;,T-&gt;Key);
+        InOrder(T-&gt;rchild);
+    }
+
+}
+
+
+BiTree BST_Search(BiTree T,KeyType k,BiTree &amp;parent)
+{
+    parent=NULL;
+    while (T!=NULL &amp;&amp; k!=T-&gt;Key)
+    {
+        parent=T;
+        if (k&gt;T-&gt;Key)
+        {
+            T=T-&gt;rchild;
+        } else{
+            T=T-&gt;lchild;
+        }
+    }
+    return T;
+}
+
+int RecurveBST_Insert(BiTree &amp;T,KeyType k)
+{
+    if (NULL==T)
+    {
+        T=(BiTree) malloc(sizeof (BSTNode));
+        T-&gt;Key=k;
+        T-&gt;lchild=T-&gt;rchild=NULL;
+        return 1;
+    } else if(k==T-&gt;Key)
+    {
+        return 0;
+    } else if (k&lt;T-&gt;Key)
+    {
+        return BST_Insert(T-&gt;lchild,k);
+    } else{
+        return BST_Insert(T-&gt;rchild,k);
+    }
+}
+int main() {
+    BiTree T = NULL;
+    KeyType str[7] = {54, 20, 66, 40, 28, 79, 58};
+    Creat_BST(T, str, 7);
+    InOrder(T);
+    printf(&quot;\n&quot;);
+    BiTree res,parent;
+    res=BST_Search(T,40,parent);
+    if (res)
+    {
+        printf(&quot;find res-&gt;%d\n&quot;,res-&gt;Key);
+    } else{
+        printf(&quot;not find\n&quot;);
+    }
+    return 1;
+}
+</code></pre>
+<p><strong>运行结果：</strong></p>
+<pre><code>/Users/uichuan/Documents/library/DataStructure/codes/search/BinarySearchTree/cmake-build-debug/BinarySearchTree
+ 20 28 40 54 58 66 79
+find res-&gt;40
+</code></pre>
+<h4 id="4">4.二叉查找树删除元素</h4>
+<p><strong>逻辑过程：</strong></p>
+<ol>
+<li>首先定位到要删除的结点，根结点如果大于要删除的元素，走左子树，否则走右子树</li>
+<li>判断要删除的结点的子结点是否为空</li>
+<li>如果左结点为空（左右结点都为空），将删除节点的父亲节点指向右孩子节点</li>
+<li>如果右结点为空，将删除节点的父亲节点指向左孩子节点</li>
+<li>
+<p>如果左右孩子节点都不为空</p>
+</li>
+<li>
+<p>找左子树的最右孩子节点放在要删除元素的位置</p>
+</li>
+<li>这样可以保证树还是一棵二叉查找树</li>
+</ol>
+<pre><code class="language-cpp">void DeleteNode(BiTree &amp;root,KeyType x)
+{
+    if (NULL==root)
+    {
+        return;
+    }
+    if (root-&gt;Key&gt;x)
+    {
+
+        DeleteNode(root-&gt;lchild,x);
+    } else if (root-&gt;Key&lt;x)
+    {
+
+        DeleteNode(root-&gt;rchild,x);
+    } else{
+        //找到了要删除的节点
+        if (root-&gt;lchild==NULL)
+        {
+            BiTree tmpNode=root;
+            root=root-&gt;rchild;
+            free(tmpNode);
+        } else if (root-&gt;rchild==NULL)
+        {
+            BiTree tmpNode=root;
+            root=root-&gt;lchild;
+            free(tmpNode);
+        }else{
+            //左右子树都不为空
+            BiTree tmpNode=root-&gt;lchild;
+            while (tmpNode-&gt;rchild!=NULL)
+            {
+                tmpNode=tmpNode-&gt;rchild;
+            }
+            root-&gt;Key=tmpNode-&gt;Key;
+            DeleteNode(root-&gt;lchild,tmpNode-&gt;Key);
+        }
+    }
+}
+</code></pre>
+<p><strong>全部代码：</strong></p>
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &quot;stdlib.h&quot;
+
+//二叉排序树
+
+typedef int KeyType;
+typedef struct BSTNode {
+    KeyType Key;
+    struct BSTNode *lchild, *rchild;
+} BSTNode, *BiTree;
+
+//非递归创建二叉查找树
+int BST_Insert(BiTree &amp;T, KeyType k) {
+    BiTree TreeNew = (BiTree) calloc(1, sizeof(BSTNode));
+    TreeNew-&gt;Key=k;
+    if (NULL==T)
+    {
+        T=TreeNew;
+        return 0;
+    }
+    //用来遍历树
+    BiTree p=T,parent;
+    while (p)
+    {
+        parent=p;
+        if (k&gt;p-&gt;Key)
+        {
+            p=p-&gt;rchild;
+        } else if (k&lt;p-&gt;Key)
+        {
+            p=p-&gt;lchild;
+        } else{
+            //相等的元素不放入查找树，返回-1
+            return -1;
+        }
+    }
+    if (k&gt;parent-&gt;Key)
+    {
+        parent-&gt;rchild=TreeNew;
+    } else{
+        parent-&gt;lchild=TreeNew;
+    }
+    return 0;
+}
+int RecurveBST_Insert(BiTree &amp;T,KeyType k)
+{
+    if (NULL==T)
+    {
+        T=(BiTree) malloc(sizeof (BSTNode));
+        T-&gt;Key=k;
+        T-&gt;lchild=T-&gt;rchild=NULL;
+        return 1;
+    } else if(k==T-&gt;Key)
+    {
+        return 0;
+    } else if (k&lt;T-&gt;Key)
+    {
+        return BST_Insert(T-&gt;lchild,k);
+    } else{
+        return BST_Insert(T-&gt;rchild,k);
+    }
+}
+
+void Creat_BST(BiTree &amp;T, KeyType *str, int len) {
+    int i;
+    for (i = 0; i &lt; len; i++) {
+        BST_Insert(T, str[i]);
+//        RecurveBST_Insert(T,str[i]);
+    }
+}
+
+
+void InOrder(BiTree T)
+{
+    if (T!=NULL)
+    {
+        InOrder(T-&gt;lchild);
+        printf(&quot;%3d&quot;,T-&gt;Key);
+        InOrder(T-&gt;rchild);
+    }
+
+}
+
+
+BiTree BST_Search(BiTree T,KeyType k,BiTree &amp;parent)
+{
+    parent=NULL;
+    while (T!=NULL &amp;&amp; k!=T-&gt;Key)
+    {
+        parent=T;
+        if (k&gt;T-&gt;Key)
+        {
+            T=T-&gt;rchild;
+        } else{
+            T=T-&gt;lchild;
+        }
+    }
+    return T;
+}
+
+void DeleteNode(BiTree &amp;root,KeyType x)
+{
+    if (NULL==root)
+    {
+        return;
+    }
+    if (root-&gt;Key&gt;x)
+    {
+
+        DeleteNode(root-&gt;lchild,x);
+    } else if (root-&gt;Key&lt;x)
+    {
+
+        DeleteNode(root-&gt;rchild,x);
+    } else{
+        //找到了要删除的节点
+        if (root-&gt;lchild==NULL)
+        {
+            BiTree tmpNode=root;
+            root=root-&gt;rchild;
+            free(tmpNode);
+        } else if (root-&gt;rchild==NULL)
+        {
+            BiTree tmpNode=root;
+            root=root-&gt;lchild;
+            free(tmpNode);
+        }else{
+            //左右子树都不为空
+            BiTree tmpNode=root-&gt;lchild;
+            while (tmpNode-&gt;rchild!=NULL)
+            {
+                tmpNode=tmpNode-&gt;rchild;
+            }
+            root-&gt;Key=tmpNode-&gt;Key;
+            DeleteNode(root-&gt;lchild,tmpNode-&gt;Key);
+        }
+    }
+}
+
+int main() {
+    BiTree T = NULL;
+    KeyType str[7] = {54, 20, 66, 40, 28, 79, 58};
+    Creat_BST(T, str, 7);
+    InOrder(T);
+
+    printf(&quot;\n&quot;);
+    BiTree res,parent;
+    res=BST_Search(T,40,parent);
+    if (res)
+    {
+        printf(&quot;find res-&gt;%d\n&quot;,res-&gt;Key);
+    } else{
+        printf(&quot;not find\n&quot;);
+    }
+
+    printf(&quot;删除结点28\n&quot;);
+    DeleteNode(T,28);
+    InOrder(T);
+    return 1;
+}
+</code></pre>
+<p><strong>运行结果：</strong></p>
+<pre><code>/Users/uichuan/Documents/library/DataStructure/codes/search/BinarySearchTree/cmake-build-debug/BinarySearchTree
+ 20 28 40 54 58 66 79
+find res-&gt;40
+删除结点28
+ 20 40 54 58 66 79
+Process finished with exit code 1
+</code></pre>
+<h3 id="4bst-2014-42">4.BST-2014-42</h3>
+<p>42.(15分) 一个长度为L(L&gt;=1)的生序序列S，处在第[L/2]个位置的数称为S的中位数。</p>
+<p>例如：若序列S1=(11,13,15,17,19)，则S1的中位数是15，</p>
+<p>两个序列的中位数是含有它们所有元素的升序序列的中位数。</p>
+<p>例如：若S2=(2,4,6,8,20)，则S1和S2的中位数是11.</p>
+<p><strong>现在有两个等长升序序列A和B，试设计一个在时间和空间两方面都尽可能高效的算法，</strong></p>
+<p>找出两个序列A和B的中位数。要求：</p>
+<ol>
+<li>给出算法的基本设计思想</li>
+<li>根据设计思想，采用C/C++语言描述算法</li>
+<li>说明时间复杂度以及空间复杂度</li>
+</ol>
+<p><strong>解析：</strong></p>
+<p>考察内容为双数组的二分查找。</p>
+<p>1.算法的设计思想：</p>
+<p>1）若a=b，则a或b即为所求中位数，算法结束。</p>
+<p>2）若 ab，则舍弃序列 A 中较小的一半，同时舍弃序列 B 中较大的一半，要求舍弃的
+长度相等；</p>
+<p>3）若 ab，则舍弃序列 A 中较大的一半，同时舍弃序列 B中较小的一半，要求舍弃
+的长度相等；</p>
+<p>在保留的两个升序序列中，重复过程 1）、2）、3），直到两个序列中均只含一个元素
+时为 止，较小者即为所求的中位数。</p>
+<p>2.<strong>算法描述</strong></p>
+<pre><code class="language-cpp">int MidSearch(int* A,int* B,int n)
+{
+    //分别表示序列 A 和 B 的首位数、末位数和中位数，s是start简写，d是end简写
+    int s1 = 0, d1 = n - 1, m1, s2 = 0, d2 = n - 1, m2;
+    //循环判断结束条件是，两个数组均不断删除最后均只能剩余一个元素
+    while(s1!=d1||s2!=d2)
+    {
+        m1 = (s1 + d1) / 2;
+        m2 = (s2 + d2) / 2;
+        if(A[m1]==B[m2])
+        {
+            return A[m1];//满足条件 1
+        }else if(A[m1]&lt;B[m2])//满足条件2
+        {
+            if((s1 + d1) % 2 == 0) { //若元素个数为奇数,这里注意数组下标从0开始
+                s1=m1;//舍弃 A 中间点以前的部分且保留中间点
+                d2=m2;//舍弃 B 中间点以后的部分且保留中间点
+            }else{//元素个数为偶数
+                s1=m1+1;//舍弃 A 中间点及中间点以前部分
+                d2=m2;//舍弃 B 中间点以后的部分且保留中间点
+            }
+        }else{//满足条件 3），下面的操作和上面条件2是完全对称的
+            if ((s1 + d1) % 2 == 0) { //若元素个数为奇数
+                d1=m1;//舍弃 A 中间点以后的部分且保留中间点
+                s2=m2;//舍弃 B 中间点以前的部分且保留中间点
+            }else{//元素个数为偶数
+                d1=m1; //舍弃 A 中间点以后部分且保留中间点
+                s2=m2+1;//舍弃 B 中间点及中间点以前部分
+            }
+        }
+    }
+    return A[s1] &lt; B[s2] ? A[s1] : B[s2];//因为题目要的是11，因此我们拿小的那个
+}
+</code></pre>
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+
+int main() {
+    int A[] = {11, 13, 15, 17, 19};
+    int B[] = {2, 4, 6, 8, 20};
+    int mid = MidSearch(A, B, 5);
+    printf(&quot;mid=%d\n&quot;, mid);
+    return 0;
+}
+</code></pre>
+<p>3.算法的时间复杂度是O(log2n)，空间复杂度是O(1)</p>
+<p>因为没有使用额外的跟 n 相关的空间，所以空间复杂度是O(1)，</p>
+<p>因为不断的二分，次数是 log2n，所以时间复杂度是 O(log2n)。</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../../tree/tree/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 5.树" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              5.树
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../sort/sort/" class="md-footer__link md-footer__link--next" aria-label="Next: 8.排序" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              8.排序
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.48f2be22.min.js"></script>
+      
+    
+  </body>
+</html>

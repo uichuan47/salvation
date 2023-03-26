@@ -1,0 +1,1137 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.0">
+    
+    
+      
+        <title>4.队列 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.2e8b5541.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4.队列
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          C(2022)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C(2022)" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          C(2022)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%282022%29/before/before/" class="md-nav__link">
+        1.数据类型和输入输出
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%282022%29/scanf/scanf/" class="md-nav__link">
+        2.scanf
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%282022%29/expression/expression/" class="md-nav__link">
+        3.运算符与逻辑运算
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%282022%29/pointer/pointer/" class="md-nav__link">
+        4.指针
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%282022%29/struct/struct/" class="md-nav__link">
+        5.结构体
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          DataStruct
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="DataStruct" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          DataStruct
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../complexity/complexity/" class="md-nav__link">
+        1.时间&空间复杂度
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LinearList/LinearList/" class="md-nav__link">
+        2.线性表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stack/stack/" class="md-nav__link">
+        3.栈
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          4.队列
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        4.队列
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 循环队列
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.顺序表实现循环队列
+  </a>
+  
+    <nav class="md-nav" aria-label="2.顺序表实现循环队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 入队
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 出队
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.链表实现队列
+  </a>
+  
+    <nav class="md-nav" aria-label="3.链表实现队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 链表队列初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 入队
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 出队
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3queue-2019-42" class="md-nav__link">
+    3.Queue-2019-42
+  </a>
+  
+    <nav class="md-nav" aria-label="3.Queue-2019-42">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    题目
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    (1)链式存储
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    (2)初始状态
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    (3)第一个元素入队
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    (4)入队和出队操作
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    4.链表实现循环队列
+  </a>
+  
+    <nav class="md-nav" aria-label="4.链表实现循环队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 入队
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    4.3 出队
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tree/tree/" class="md-nav__link">
+        5.树
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../search/search/" class="md-nav__link">
+        7.查找
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sort/sort/" class="md-nav__link">
+        8.排序
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 循环队列
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.顺序表实现循环队列
+  </a>
+  
+    <nav class="md-nav" aria-label="2.顺序表实现循环队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 入队
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 出队
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.链表实现队列
+  </a>
+  
+    <nav class="md-nav" aria-label="3.链表实现队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 链表队列初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2 入队
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 出队
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3queue-2019-42" class="md-nav__link">
+    3.Queue-2019-42
+  </a>
+  
+    <nav class="md-nav" aria-label="3.Queue-2019-42">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    题目
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    (1)链式存储
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    (2)初始状态
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    (3)第一个元素入队
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    (4)入队和出队操作
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    4.链表实现循环队列
+  </a>
+  
+    <nav class="md-nav" aria-label="4.链表实现循环队列">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 入队
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    4.3 出队
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">队列</h1>
+<p>队列是一种操作受到约束的线性表，只允许在表的一段进行插入，在表的另一端进行删除</p>
+<p>向队列中插入元素成为入队，删除元素称为出队</p>
+<p><img alt="image-20221112212220898" src="../assets/image-20221112212220898-8260265.png" /></p>
+<h3 id="1">1. 循环队列</h3>
+<p><img alt="image-20221112212210171" src="../assets/image-20221112212210171.png" /></p>
+<pre><code>在循环队列中判断队列是否已经满
+牺牲一个位置的存储单元为空
+如果 rear + 1 == front
+即队尾的指针+1等于队头 时，循环队列已满
+</code></pre>
+<pre><code>再次需要注意：
+    front指向的位置总是存有元素，而且是先入队的元素
+    rear指向的位置没有元素，rear总是指向最后一个元素的下一个位置
+</code></pre>
+<h3 id="2">2.顺序表实现循环队列</h3>
+<pre><code class="language-cpp">int main() {
+    SqQueue SQ;
+    bool res;
+    ElemType element;
+    InitQueue(SQ);
+    EnQueue(SQ,1);
+    EnQueue(SQ,2);
+    EnQueue(SQ,3);
+    DeQueue(SQ,element);
+    printf(&quot;DeQueue-&gt;%d\n&quot;,element);
+    DeQueue(SQ,element);
+    printf(&quot;DeQueue-&gt;%d\n&quot;,element);
+    return 0;
+}
+</code></pre>
+<pre><code class="language-cpp">#define MaxSize 5
+typedef int ElemType;
+typedef struct SqQueue{
+    ElemType data[MaxSize]; //数组，循环队列最存储MaxSize-1个元素
+    int front,rear; //队列头，队列尾
+}SqQueue;
+</code></pre>
+<pre><code class="language-cpp">void InitQueue(SqQueue &amp;Q)
+{
+    Q.front = Q.rear = 0; //初始化队列
+}
+</code></pre>
+<pre><code class="language-cpp">bool isEmpty(SqQueue Q)
+{
+    if(Q.front == Q.rear)
+    {
+        return true;
+    }
+    return false;
+}
+</code></pre>
+<h4 id="21">2.1 入队</h4>
+<pre><code class="language-cpp">bool EnQueue(SqQueue &amp;Q,ElemType x)
+{
+    if ((Q.rear+1) % MaxSize == Q.front)
+    {
+        return false; //队列满，不能入队
+    }
+    Q.data[Q.rear] = x;
+    Q.rear = (Q.rear + 1) % MaxSize; // 添加完一个元素以后，队尾向后移动一个单位
+    return true;
+}
+</code></pre>
+<h4 id="22">2.2 出队</h4>
+<pre><code class="language-cpp">bool DeQueue(SqQueue &amp;Q,ElemType &amp;x)
+{
+    if(Q.front == Q.rear) // 判断队列是否为空
+    {
+        return false;
+    }
+    x = Q.data[Q.front];
+    Q.front = (Q.front + 1) % MaxSize;
+    return true;
+}
+</code></pre>
+<h3 id="3">3.链表实现队列</h3>
+<p><img alt="image-20221112211638419" src="../assets/image-20221112211638419.png" /></p>
+<p>采用带有头节点（front）的单链表存储队列，也可以实现先入先出，每次删除第一个节点（front指针所指向的节点）</p>
+<pre><code class="language-cpp">int main() {
+    LinkQueue Q;
+    InitQueue(Q);
+    EnQueue(Q, 1);
+    EnQueue(Q, 2);
+    EnQueue(Q, 3);
+    EnQueue(Q, 4);
+    bool res;
+    ElemType element;
+    res = DeQueue(Q, element);
+    if (res) {
+        printf(&quot;deQueue success element=%d\n&quot;, element);
+    } else {
+        printf(&quot;deQueue unsuccess\n&quot;);
+    }
+    return 0;
+}
+</code></pre>
+<h4 id="31">3.1 链表队列初始化</h4>
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+typedef int ElemType;
+typedef struct LinkNode {
+    ElemType data;
+    struct LinkNode *next;
+} LinkNode;
+
+typedef struct {
+    LinkNode *front, *rear;
+} LinkQueue;
+
+//带头节点的链表实现队列
+void InitQueue(LinkQueue &amp;Q) {
+    Q.front = Q.rear = (LinkNode *) malloc(sizeof(LinkNode));
+    Q.front-&gt;next = NULL;
+}
+</code></pre>
+<h4 id="32">3.2 入队</h4>
+<pre><code class="language-cpp">void EnQueue(LinkQueue &amp;Q, ElemType x) {
+    LinkNode *newNode = (LinkNode *) malloc(sizeof(LinkNode));
+    newNode-&gt;data = x;
+    newNode-&gt;next = NULL;
+    Q.rear-&gt;next = newNode;
+    Q.rear = newNode;
+}
+</code></pre>
+<h4 id="33">3.3 出队</h4>
+<pre><code class="language-cpp">bool DeQueue(LinkQueue &amp;Q, ElemType &amp;element) {
+    //队列为空
+    if (Q.rear == Q.front) {
+        return false;
+    }
+    LinkNode *q = Q.front-&gt;next;
+    element = q-&gt;data;
+    Q.front-&gt;next = q-&gt;next;
+    if (q == Q.rear) {
+        Q.rear = Q.front;
+    }
+    free(q);
+    return true;
+}
+</code></pre>
+<h3 id="3queue-2019-42">3.Queue-2019-42</h3>
+<h4 id="_2">题目</h4>
+<p>42.（10分）请设计一个队列，要求满足：1.初始时队列为空；2.入队时，允许增加队列占用空间；3.出队后，出队元素所占用的空间可以<strong>重复利用</strong>，即整个队列所占用的空间只增不减；4.入队操作和出队操作时间复杂度为O（1）。</p>
+<p>回答以下问题：</p>
+<ol>
+<li>该队列选择<strong>链式存储</strong>还是顺序存储？</li>
+<li>画出队列的初始状态，并给出判断队空和队满的条件</li>
+<li>画出第一个元素入队后的队列状态</li>
+<li>给出入队操作和出队操作的基本过程</li>
+</ol>
+<h4 id="1_1">(1)链式存储</h4>
+<h4 id="2_1">(2)初始状态</h4>
+<p><strong>画出队列的初始状态，并给出判断队空和队满的条件</strong></p>
+<p>​   初始时，创建只有一个空闲节点的链表，rear，front指针都指向第一个空闲的节点</p>
+<p><img alt="image-20221112231237492" src="../assets/image-20221112231237492.png" /></p>
+<p>新增一个元素之后：</p>
+<p><img alt="image-20221112231746029" src="../assets/image-20221112231746029.png" /></p>
+<p>队空的判定条件：front=rear</p>
+<p>队满的判定条件：front=rear-&gt;next</p>
+<h4 id="3_1">(3)第一个元素入队</h4>
+<p><img alt="image-20221112232109924" src="../assets/image-20221112232109924.png" /></p>
+<p>在插入一个元素之后，一定要<strong>确保当前节点的next是下一个空节点</strong></p>
+<p><img alt="image-20221112232431494" src="../assets/image-20221112232431494.png" /></p>
+<h4 id="4">(4)入队和出队操作</h4>
+<p>出队操作：</p>
+<p>移除front指针指向的节点存储的元素，并将front指针向前移动front=front-&gt;next</p>
+<p><img alt="image-20221112233610607" src="../assets/image-20221112233610607.png" /></p>
+<p>入队操作：</p>
+<p>将新元素Element放在Element2之后，同时将rear指向之前移除元素的节点</p>
+<p><img alt="image-20221112233013948" src="../assets/image-20221112233013948.png" /></p>
+<pre><code>入队操作:
+if(front=rear-&gt;next) // 队满
+{
+    在rear之后插入一个新节点
+}
+入队元素保存在rear所指向的节点中;
+rear=rear-&gt;next;
+
+出队操作:
+if (front == rear) //队空
+{
+    出队失败return;
+}
+// 如果对列不为空
+取front所指向的元素element，front前移 front=front-&gt;next;
+return element;
+</code></pre>
+<h3 id="4_1">4.链表实现循环队列</h3>
+<h4 id="41">4.1 定义</h4>
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+typedef int ElemType;
+typedef struct LNode {
+    ElemType data;
+    struct LNode *next;
+} LNode, *LinkList;
+
+void CircleQueue(LinkList &amp;front, LinkList &amp;rear) {
+    //进行初始化
+    front = (LinkList) malloc(sizeof(LNode));
+    rear = front;
+    rear-&gt;next = front;
+
+    //入队两个元素
+    EnQueue(front,rear,3);
+    EnQueue(front,rear,4);
+
+    //出队
+    Dequeue(front,rear);
+    Dequeue(front,rear);
+    Dequeue(front,rear);
+}
+
+
+int main() {
+    LinkList front, rear;
+    CircleQueue(front, rear);
+}
+</code></pre>
+<h4 id="42">4.2 入队</h4>
+<pre><code class="language-cpp">void EnQueue(LinkList front, LinkList &amp;rear, ElemType val) {
+    LinkList pnew;
+    if (rear-&gt;next == front) {
+        //rear当前是空节点，如果rear-&gt;next== front，说明队列满
+        //申请新节点
+        pnew = (LinkList) malloc(sizeof(LNode));
+        //插入的元素放在rear节点中，而不放在新申请的空节点中
+        rear-&gt;data = val;
+        rear-&gt;next = pnew;
+        pnew-&gt;next = front;
+        rear = pnew;
+    } else {
+        //队列不满，直接放值，rear后移一个节点
+        rear-&gt;data = val;
+        rear = rear-&gt;next;
+    }
+}
+</code></pre>
+<h4 id="43">4.3 出队</h4>
+<pre><code class="language-cpp">void Dequeue(LinkList &amp;front,LinkList rear)
+{
+    if (front==rear)
+    {
+        printf(&quot;empty queue\n&quot;);
+    }else{
+        printf(&quot;Dequeue-&gt;%d\n&quot;,front-&gt;data);
+        front=front-&gt;next;
+    }
+}
+</code></pre>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../../stack/stack/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 3.栈" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              3.栈
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../tree/tree/" class="md-footer__link md-footer__link--next" aria-label="Next: 5.树" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              5.树
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.48f2be22.min.js"></script>
+      
+    
+  </body>
+</html>
