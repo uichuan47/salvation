@@ -737,3 +737,338 @@ int main() {
 }
 ```
 
+
+
+### 6.线索二叉树
+
+![image-20230326171739245](assets/image-20230326171739245.png)
+
+线索二叉树的作用是**方便从一个指定节点出发，找到其前驱，后继，便与二叉树遍历**
+
+将二叉树按照某种遍历规则（前/中/后序遍历）输出后，得到的线性序列，
+
+每一个节点都有一个直接前驱和直接后继
+
+**例如：**
+
+![image-20230326162801985](assets/image-20230326162801985.png)
+
+#### 6.1线索化过程
+
+**线索二叉树的存储结构与辅助队列**
+
+```cpp
+typedef char BiElemType;
+typedef struct ThreadNode {
+    BiElemType c;
+    struct ThreadNode *rchild;
+    struct ThreadNode *lchild;
+    int ltag, rtag;
+} ThreadNode, *ThreadTree;
+
+typedef struct tag {
+    ThreadTree p;//树的某一个结点的地址值
+    struct tag *pnext;
+} tag_t, *ptag_t;
+```
+
+**全局变量：**
+
+```cpp
+ThreadNode *target;
+ThreadNode *pre = NULL;
+ThreadNode *final = NULL;
+```
+
+**线索化：**
+
+```cpp
+// 访问节点q，找它的前驱节点pre
+void Visit(ThreadTree q) {
+    if (q->lchild == NULL) {
+        q->lchild = pre;
+        q->ltag = 1;
+    }
+    if (pre != NULL && pre->rchild == NULL) {
+        pre->rchild = q;
+        pre->rtag = 1;
+    }
+    pre=q;
+}
+
+void InThread(ThreadTree T) {
+    if (T != NULL) {
+        InThread(T->lchild);
+        Visit(T);
+        InThread(T->rchild);
+    }
+}
+
+void CreateInThread(ThreadTree T)
+{
+    pre=NULL;
+    if(T!=NULL)
+    {
+        InThread(T);
+        if(pre->rchild == NULL)
+        {
+            pre->rtag = 1;
+        }
+    }
+}
+```
+
+
+
+以如下的二叉树为例：
+
+![image-20230326171728924](assets/image-20230326171728924.png)
+
+![image-20230326171628723](assets/image-20230326171628723.png)
+
+
+
+#### 6.2线索化全部代码
+
+```cpp
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef char BiElemType;
+typedef struct ThreadNode {
+    BiElemType c;//c 就是书籍上的 data struct BiTNode *lchild;
+    struct ThreadNode *rchild;
+    struct ThreadNode *lchild;
+    int ltag, rtag;
+} ThreadNode, *ThreadTree;
+//tag 结构体是辅助队列使用的
+typedef struct tag {
+    ThreadTree p;//树的某一个结点的地址值
+    struct tag *pnext;
+} tag_t, *ptag_t;
+
+
+ThreadNode *target;
+ThreadNode *pre = NULL;
+ThreadNode *final = NULL;
+
+// 访问节点q，找它的前驱节点pre
+void Visit(ThreadTree q) {
+    if (q->lchild == NULL) {
+        q->lchild = pre;
+        q->ltag = 1;
+    }
+    if (pre != NULL && pre->rchild == NULL) {
+        pre->rchild = q;
+        pre->rtag = 1;
+    }
+    pre=q;
+}
+
+void InThread(ThreadTree T) {
+    if (T != NULL) {
+        InThread(T->lchild);
+        Visit(T);
+        InThread(T->rchild);
+    }
+}
+
+void CreateInThread(ThreadTree T)
+{
+    pre=NULL;
+    if(T!=NULL)
+    {
+        InThread(T);
+        if(pre->rchild == NULL)
+        {
+            pre->rtag = 1;
+        }
+    }
+}
+
+void preOrder(ThreadTree p) {
+    if (p != NULL) {
+        putchar(p->c);
+        preOrder(p->lchild);
+        preOrder(p->rchild);
+    }
+}
+
+int main() {
+    ThreadTree pnew;
+    ThreadTree tree = NULL;
+    char c;
+    ptag_t phead = NULL, ptail = NULL, listpnew = NULL, pcur = NULL;
+
+    while (scanf("%c", &c)) {
+        if (c == '\n') {
+            break;
+        }
+        pnew = (ThreadTree) calloc(1, sizeof(ThreadNode));
+        pnew->c = c;
+        pnew->rtag = 0;
+        pnew->ltag = 0;
+        listpnew = (ptag_t) calloc(1, sizeof(tag_t));
+        listpnew->p = pnew;
+        if (NULL == tree) {
+            tree = pnew;
+            phead = listpnew;
+            ptail = listpnew;
+            pcur = listpnew;
+            continue;
+        } else {
+            ptail->pnext = listpnew;
+            ptail = listpnew;
+        }
+
+        if (NULL == pcur->p->lchild) {
+            pcur->p->lchild = pnew;
+        } else if (NULL == pcur->p->rchild) {
+            pcur->p->rchild = pnew;
+            pcur = pcur->pnext;
+        }
+    }
+    preOrder(tree);
+    CreateInThread(tree);
+    return 0;
+}
+```
+
+
+
+#### 6.3 先序线索化中无限循环问题
+
+![image-20230326171739245](assets/image-20230326171739245.png)
+
+```
+先序遍历序列：
+	A BDGE CF
+```
+
+如果访问到D，则会出现`D->lchild=B`造成无限循环，应加入判断
+
+判断ltag是否已经线索化，如果还未线索化，再进行PreThread
+
+```cpp
+if(T->ltag==0)
+{
+    PreThread(T->lchild)
+}
+```
+
+#### 6.4 线索二叉树中找前驱后继
+
+**6.4.1找指定节点p的中序后继next**
+
+- 若p->rtag==1，则next=p->rchild
+- 若p->rtag==0
+
+```
+left root right
+left root (left root right)
+left root ((left root right) root right)
+```
+
+找右子树最左边节点
+
+**6.4.2 找指定节点p的中序前驱pre**
+
+- 若p->ltag=1,则pre=p->lchild
+- 若p->ltag=0
+
+```
+left root right
+(left root right) root right
+(left root (left root right)) root right
+```
+
+找左子树的最右节点
+
+**6.4.3找指定节点p的先序后继next**
+
+- 若p->rtag=1,则next=p->rchild
+- 若p->rtag=0,则必有右孩子节点
+
+```
+- 只有右孩子节点
+	root right
+	root (left root right)
+	找右孩子节点
+- 具有左右孩子节点
+	root left right
+	root (root left right) right
+	root ((root left right) left right) right
+	找左孩子节点
+```
+
+**6.4.4找指定节点p的先序前驱pre**
+
+用三叉链表，找到一个节点的父亲节点（前驱节点）
+
+- p是左孩子节点（p右兄弟节点）
+
+```
+root left right
+p的前驱是root
+```
+
+- p是右孩子节点（左孩子节点为空）
+
+```
+root right
+root (root left right)
+p的前驱是root
+```
+
+- p是右孩子节点，root有左孩子节点
+
+```
+root left right
+root (root left right) right
+root (root left (root left right)) right
+p的前驱是左孩子节点的最右下方节点
+```
+
+- p是根节点，p没有先序前驱
+
+**6.4.5找指定节点p的后序后继next**
+
+用三叉链表，找到一个节点的父亲节点（前驱节点）
+
+- p->rtag=1,则next=p->rchild
+- p->rtag=0，则必有右子树
+
+```
+- p是右孩子，有兄弟节点
+	left right root
+	left right (left right root)
+	找根节点
+- p是左孩子，右兄弟为空
+	left root
+	(left right root) root
+	找根结底哪
+- p是左孩子，右孩子不空
+	left right root
+	left (left right root) right
+	left ((left right root) right root) right
+	找右孩子的最左下方节点
+```
+
+**6.4.6找指定节点p的后序前驱pre**
+
+- p->ltag=1,则pre=p->lchild
+- p->ltag=0,则必有左子树
+
+```
+- 只有左孩子节点
+	left root
+	(left right root) root
+	找左孩子节点
+- 有左右孩子节点
+	left right root
+	left (left right root) root
+	找右孩子节点
+```
+
+
+
